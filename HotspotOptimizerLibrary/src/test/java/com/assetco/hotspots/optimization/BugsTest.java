@@ -7,7 +7,6 @@ import com.assetco.search.results.HotspotKey;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
-import java.util.EnumSet;
 import java.util.List;
 
 class BugsTest {
@@ -16,9 +15,8 @@ class BugsTest {
     void precedingPartnerWithLongTrailingAssetsDoesNotWin() {
         var partnerVendor = makeVendor(AssetVendorRelationshipLevel.Partner);
         var missing = givenAssetInResultsWithVendor(partnerVendor);
-        var otherVendor = makeVendor(AssetVendorRelationshipLevel.Partner);
         // disrupting asset
-        givenAssetInResultsWithVendor(otherVendor);
+        givenAssetInResultsWithVendor(makeVendor(AssetVendorRelationshipLevel.Partner));
         var expected = givenFourAssetsInResultsWithVendor(partnerVendor);
         whenOptimize();
         thenHotspotDoesNotHave(HotspotKey.Showcase, missing);
