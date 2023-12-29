@@ -24,9 +24,11 @@ class BugsTest {
     }
 
     private void thenHotspotHasExactly(HotspotKey hotspotKey, List<Asset> expectedAssets) {
+        // empty
     }
 
     private void thenHotspotDoesNotHave(HotspotKey hotspotKey, Asset... assets) {
+        // empty
     }
 
     private void whenOptimize() {
